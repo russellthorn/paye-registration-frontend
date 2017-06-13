@@ -59,4 +59,10 @@ trait SignInOutCtrl extends FrontendController with Actions with I18nSupport {
         Redirect(s"$compRegFEURL$compRegFEURI/questionnaire").withNewSession
   }
 
+  def renewSession: Action[AnyContent] = AuthorisedFor(taxRegime = new PAYERegime, pageVisibility = GGConfidence) {
+    implicit user =>
+      implicit request =>
+        Ok
+  }
+
 }

@@ -105,3 +105,5 @@ GET        /business-registration-overview                    controllers.userJo
 ## Questionnaire
 
 POST       /questionnaire                                     controllers.userJourney.EligibilityController.questionnaire
+
+GET        /renew-session                                     controllers.userJourney.SignInOutController.renewSession
