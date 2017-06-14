@@ -35,14 +35,11 @@
       showBetaLink = false,
       navLinks = Some(headerNavLinks))
 }
-
 @afterHeader = {}
-
-
 
 @scriptElement = {
     <script type="text/javascript" src='@routes.Assets.at("javascripts/paye.js")'></script>
-    <script src='@controllers.routes.Assets.at("javascripts/timeout-dialog.js")' type="text/javascript"></script><script type="text/javascript" charset="utf-8">$.timeoutDialog({timeout: 75,countdown: 60,keep_alive_url: '/register-for-paye/renew-session',logout_url: '/register-for-paye/register-as-employer'});var dialogOpen;</script>
+    <script src='@controllers.routes.Assets.at("javascripts/timeout-dialog.js")' type="text/javascript"></script><script type="text/javascript" charset="utf-8">$.timeoutDialog({timeout: @appConfig.timeoutInSeconds,countdown: 60,keep_alive_url: '/register-for-paye/renew-session',logout_url: '/register-for-paye/register-as-employer'});var dialogOpen;</script>
 }
 
 @scripts = {

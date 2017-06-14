@@ -32,6 +32,7 @@ trait AppConfig {
   val reportAProblemNonJSUrl: String
 
   val contactFrontendPartialBaseUrl : String
+  val timeoutInSeconds : String
 }
 
 object FrontendAppConfig extends AppConfig with ServicesConfig {
@@ -73,4 +74,5 @@ object FrontendAppConfig extends AppConfig with ServicesConfig {
 
   lazy val uriWhiteList = configuration.getStringSeq("csrfexceptions.whitelist").getOrElse(Seq.empty).toSet
   lazy val csrfBypassValue = loadStringConfigBase64("Csrf-Bypass-value")
+  override lazy val timeoutInSeconds = loadConfig(s"timeoutInSeconds")
 }
